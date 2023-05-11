@@ -11,13 +11,23 @@ int monty_push(stack_t **stack, char **token, unsigned int line_num)
 {
 
 	stack_t *new_node;
+	int i = 0;
 
 	if (token[1] == NULL)
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_num);
 		return (EXIT_FAILURE);
 	}
-
+	while(token[1][i])
+	{
+		if (token[1][i] < '0' || token[1][i] > '9')
+		{
+			printf("usage: push integer\n");
+			free_stack(stack);
+			return (EXIT_FAILURE);
+		}
+		i++;
+	}
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 	{
