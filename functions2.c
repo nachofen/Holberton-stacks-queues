@@ -9,7 +9,6 @@
  */
 int monty_push(stack_t **stack, char **token, unsigned int line_num)
 {
-
 	stack_t *new_node;
 	int i = 0;
 
@@ -18,7 +17,7 @@ int monty_push(stack_t **stack, char **token, unsigned int line_num)
 		fprintf(stderr, "L%u: usage: push integer\n", line_num);
 		return (EXIT_FAILURE);
 	}
-	while(token[1][i])
+	while (token[1][i])
 	{
 		if (i == 0 && token[1][i] == '-')
 		{
@@ -42,13 +41,11 @@ int monty_push(stack_t **stack, char **token, unsigned int line_num)
 	new_node->n = atoi(token[1]);
 	new_node->prev = NULL;
 	new_node->next = *stack;
-
 	if (*stack != NULL)
 	{
 		(*stack)->prev = new_node;
 	}
-
-		*stack = new_node;
+	*stack = new_node;
 	return (EXIT_SUCCESS);
 
 }
