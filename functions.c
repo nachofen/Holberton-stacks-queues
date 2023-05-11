@@ -27,11 +27,13 @@ int monty_run(FILE *fd)
 			exit_st = monty_push(&stack, token, line_num);
 		else
 			exit_st = execute(token, &stack, line_num);
+		free(token);
 		if (exit_st == EXIT_FAILURE)
 			break;
 	}
 	free_stack(&stack);
 	free(line);
+
 	return (exit_st);
 }
 /**
