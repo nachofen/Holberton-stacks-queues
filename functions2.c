@@ -22,7 +22,7 @@ int monty_push(stack_t **stack, char **token, unsigned int line_num)
 	{
 		if (token[1][i] < '0' || token[1][i] > '9')
 		{
-			printf("usage: push integer\n");
+			fprintf(stderr, "L%d: usage: push integer\n", line_num);
 			free_stack(stack);
 			return (EXIT_FAILURE);
 		}
