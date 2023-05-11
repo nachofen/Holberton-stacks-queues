@@ -81,7 +81,7 @@ int execute(char **token, stack_t **stack, unsigned int line_num)
 		{"null", NULL}
 	};
 
-	for (i = 0; i < 333; i++)
+	for (i = 0; i < 6; i++)
 	{
 		if (strcmp(op[i].opcode, token[0]) == 0)
 		{
