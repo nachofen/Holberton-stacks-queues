@@ -20,6 +20,11 @@ int monty_push(stack_t **stack, char **token, unsigned int line_num)
 	}
 	while(token[1][i])
 	{
+		if (i == 0 && token[1][i] == '-')
+		{
+			i++;
+			continue;
+		}
 		if (token[1][i] < '0' || token[1][i] > '9')
 		{
 			fprintf(stderr, "L%d: usage: push integer\n", line_num);
